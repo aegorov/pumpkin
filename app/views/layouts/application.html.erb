@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pumpkin</title>
- <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <title>Система автоматизации учета поставок топлива для котельних</title>
+  <%= stylesheet_link_tag    "bootstrap.min" %>
+  <%= javascript_include_tag "jquery", "jquery.tablesorter.min", "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

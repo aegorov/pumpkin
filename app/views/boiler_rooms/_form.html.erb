@@ -10,16 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name, "Имя" %><br />
-    <%= f.text_field :name %>
+  <div class="clearfix">
+    	<%= f.label :name, "Имя" %>
+	  <div class="input">
+    	<%= f.text_field :name %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :number, "Номер"%><br />
-    <%= f.number_field :number %>
+  <div class="clearfix">
+    	<%= f.label :number, "Номер"%>
+  	<div class="input">
+    	<%= f.number_field :number %>
+	</div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+	<%= f.submit 'Обновить', :class => "btn info"%>
   </div>
 <% end %>

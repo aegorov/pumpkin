@@ -1,23 +1,27 @@
 <h1>Список котельных</h1>
 
-<table>
+<table class="zebra-striped" id="boiler_rooms">
   <tr>
-    <th>Имя</th>
+    <th>Название котельной</th>
     <th>Номер</th>
-    <th></th>
-    <th></th>
+	<th></th>
+	<th></th>
   </tr>
 
 <% @boiler_rooms.each do |boiler_room| %>
   <tr>
     <td><%= boiler_room.name %></td>
     <td><%= boiler_room.number %></td>
-    <td><%= link_to 'Редактировать', edit_boiler_room_path(boiler_room) %></td>
-    <td><%= link_to 'Удалить', boiler_room, :confirm => 'Вы уверены?', :method => :delete %></td>
+    <td>
+		<%= button_to 'Редактировать', edit_boiler_room_path(boiler_room), :method => :get, :class => "btn info" %>
+	</td>
+	<td>
+		<%= button_to 'Удалить', boiler_room, :confirm => 'Вы уверены?', :method => :delete, :class => "btn danger" %>
+	</td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Добавить котельную', new_boiler_room_path %>
+<%= button_to 'Добавить котельную', new_boiler_room_path, :method  => :get, :class => "btn primary" %>
