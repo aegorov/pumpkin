@@ -7,5 +7,5 @@
 //= require jquery_ujs
 //= require_tree .
 $(function() {
-	$("#boiler_rooms").tablesorter({ sortList: [[1,0]] });
+	$("#boiler_rooms").tablesorter();
 });

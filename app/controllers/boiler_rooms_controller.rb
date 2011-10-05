@@ -3,7 +3,7 @@ class BoilerRoomsController < ApplicationController
   # GET /boiler_rooms.json
   def index
     @boiler_rooms = BoilerRoom.all
-
+    @boiler_room = BoilerRoom.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @boiler_rooms }
@@ -44,8 +44,7 @@ class BoilerRoomsController < ApplicationController
 
     respond_to do |format|
       if @boiler_room.save
-        format.html { redirect_to @boiler_room, :notice => 'Boiler room was successfully created.' }
-        format.json { render :json => @boiler_room, :status => :created, :location => @boiler_room }
+        format.html { redirect_to boiler_rooms_path()}
       else
         format.html { render :action => "new" }
         format.json { render :json => @boiler_room.errors, :status => :unprocessable_entity }
@@ -60,7 +59,7 @@ class BoilerRoomsController < ApplicationController
 
     respond_to do |format|
       if @boiler_room.update_attributes(params[:boiler_room])
-        format.html { redirect_to @boiler_room, :notice => 'Boiler room was successfully updated.' }
+        format.html { redirect_to boiler_rooms_path()}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
