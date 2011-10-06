@@ -23,6 +23,10 @@
 	</div>
   </div>
   <div class="actions">
-	<%= f.submit 'Обновить', :class => "btn info"%>
+	<% if create == true %>
+		<%= f.submit 'Создать', :class => "btn info"%>
+	<% else %>	
+		<%= f.submit 'Обновить', :class => "btn info"%>
+	<% end %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 <h2>Редактировать котельную</h2>
 
-<%= render 'form' %>
+<%= render :partial => "form", :locals => { :create => false } %>	
 
 <%= link_to 'Назад', boiler_rooms_path %>

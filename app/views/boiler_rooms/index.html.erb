@@ -1,5 +1,4 @@
 <h1>Список котельных</h1>
-
 <table class="zebra-striped" id="boiler_rooms">
   <tr>
     <th>Название котельной</th>
@@ -7,7 +6,6 @@
 	<th></th>
 	<th></th>
   </tr>
-
 <% @boiler_rooms.each do |boiler_room| %>
   <tr>
     <td><%= boiler_room.name %></td>
@@ -21,16 +19,13 @@
   </tr>
 <% end %>
 </table>
-
-
 <div id="modal-from-dom" class="modal hide fade">
 	<div class="modal-header">
 		<a href="#" class="close">&times;</a>
 		<h3>Новая котельная</h3>
 	</div>
 	<div class="modal-body">
-		<%= render "form" %>
+		<%= render :partial => "form", :locals => { :create => true } %>	
 	</div>
 </div>
 <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Добавить котельную</button>
-

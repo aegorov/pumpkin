@@ -1,0 +1,25 @@
+<h1>Listing consumers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consumers.each do |consumer| %>
+  <tr>
+    <td><%= consumer.name %></td>
+    <td><%= consumer.number %></td>
+    <td><%= link_to 'Show', consumer %></td>
+    <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
+    <td><%= link_to 'Destroy', consumer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Consumer', new_consumer_path %>
