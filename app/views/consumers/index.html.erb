@@ -1,10 +1,7 @@
-<h1>Listing consumers</h1>
-
-<table>
+<table class="zebra-striped" id="consumers">
   <tr>
-    <th>Name</th>
-    <th>Number</th>
-    <th></th>
+    <th>Название</th>
+    <th>Номер</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,13 +10,18 @@
   <tr>
     <td><%= consumer.name %></td>
     <td><%= consumer.number %></td>
-    <td><%= link_to 'Show', consumer %></td>
-    <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
-    <td><%= link_to 'Destroy', consumer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Редактировать', edit_consumer_path(consumer), :method => :get, :class => "btn" %></td>
+    <td><%= button_to 'Удалить', consumer, :confirm => 'Вы уверены', :method => :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Consumer', new_consumer_path %>
+<div id="modal-from-dom" class="modal hide fade">
+	<div class="modal-header">
+		<a href="#" class="close">&times;</a>
+		<h3>Новый потребитель</h3>
+	</div>
+	<div class="modal-body">
+		<%= render :partial => "form", :locals => { :create => true } %>	
+	</div>
+</div>
+<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новый потребитель</button>

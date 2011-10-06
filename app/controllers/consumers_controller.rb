@@ -3,6 +3,7 @@ class ConsumersController < ApplicationController
   # GET /consumers.json
   def index
     @consumers = Consumer.all
+    @consumer = Consumer.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +45,7 @@ class ConsumersController < ApplicationController
 
     respond_to do |format|
       if @consumer.save
-        format.html { redirect_to @consumer, :notice => 'Consumer was successfully created.' }
+        format.html { redirect_to consumers_path() }
         format.json { render :json => @consumer, :status => :created, :location => @consumer }
       else
         format.html { render :action => "new" }
@@ -60,7 +61,7 @@ class ConsumersController < ApplicationController
 
     respond_to do |format|
       if @consumer.update_attributes(params[:consumer])
-        format.html { redirect_to @consumer, :notice => 'Consumer was successfully updated.' }
+        format.html { redirect_to consumers_path() }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

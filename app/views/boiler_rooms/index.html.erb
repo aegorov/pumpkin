@@ -1,4 +1,3 @@
-<h1>Список котельных</h1>
 <table class="zebra-striped" id="boiler_rooms">
   <tr>
     <th>Название котельной</th>
@@ -11,7 +10,7 @@
     <td><%= boiler_room.name %></td>
     <td><%= boiler_room.number %></td>
     <td>
-		<%= button_to 'Редактировать', edit_boiler_room_path(boiler_room), :method => :get, :class => "btn info" %>
+		<%= button_to 'Редактировать', edit_boiler_room_path(boiler_room), :method => :get, :class => "btn" %>
 	</td>
 	<td>
 		<%= button_to 'Удалить', boiler_room, :confirm => 'Вы уверены?', :method => :delete, :class => "btn danger" %>
@@ -28,4 +27,4 @@
 		<%= render :partial => "form", :locals => { :create => true } %>	
 	</div>
 </div>
-<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Добавить котельную</button>
+<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новая котельная</button>
