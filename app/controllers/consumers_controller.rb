@@ -10,34 +10,7 @@ class ConsumersController < ApplicationController
       format.json { render :json => @consumers }
     end
   end
-
-  # GET /consumers/1
-  # GET /consumers/1.json
-  def show
-    @consumer = Consumer.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @consumer }
-    end
-  end
-
-  # GET /consumers/new
-  # GET /consumers/new.json
-  def new
-    @consumer = Consumer.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @consumer }
-    end
-  end
-
-  # GET /consumers/1/edit
-  def edit
-    @consumer = Consumer.find(params[:id])
-  end
-
+  
   # POST /consumers
   # POST /consumers.json
   def create
