@@ -12,7 +12,21 @@
   <tr>
     <td><%= consumer.name %></td>
     <td><%= consumer.number %></td>
-    <td><%= button_to 'Редактировать', edit_consumer_path(consumer), :method => :get, :class => "btn" %></td>
+    <td>
+		<div id="modal-from-dom<%=consumer.id%>" class="modal hide fade">
+			<div class="modal-header">
+				<a href="#" class="close">&times;</a>
+				<h3>Редактировать потребителя</h3>
+			</div>
+			<div class="modal-body">
+				<%= render "form", :consumer => consumer, :create => false %>	
+			</div>
+		</div>
+		<%= button_to 'Редактировать', "#",{:method => :get, :class => "btn",
+										"data-backdrop" => true,
+										"data-controls-modal" => "modal-from-dom#{consumer.id}",
+										"data-keyboard" => true } %>
+									</td>
     <td><%= button_to 'Удалить', consumer, :confirm => 'Вы уверены', :method => :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
@@ -24,7 +38,7 @@
 		<h3>Новый потребитель</h3>
 	</div>
 	<div class="modal-body">
-		<%= render :partial => "form", :locals => { :create => true } %>	
+		<%= render "form", :consumer => @consumer, :create => true %>	
 	</div>
 </div>
 <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новый потребитель</button>

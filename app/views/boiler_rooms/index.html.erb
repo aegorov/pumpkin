@@ -13,7 +13,18 @@
     <td><%= boiler_room.name %></td>
     <td><%= boiler_room.number %></td>
     <td>
-		<%= button_to 'Редактировать', edit_boiler_room_path(boiler_room), :method => :get, :class => "btn" %>
+		<div id="modal-from-dom<%=boiler_room.id%>" class="modal hide fade">
+			<div class="modal-header">
+				<a href="#" class="close">&times;</a>
+				<h3>Редактировать котельную</h3>
+			</div>
+			<div class="modal-body">
+				<%= render "form", :boiler_room => boiler_room, :create => false %>	
+			</div>
+		</div>
+		<%= button_to 'Редактировать', edit_boiler_room_path(boiler_room),{:method => :get, :class => "btn","data-backdrop" => true,
+																			"data-controls-modal" => "modal-from-dom#{boiler_room.id}",
+																			"data-keyboard" => true } %>
 	</td>
 	<td>
 		<%= button_to 'Удалить', boiler_room, :confirm => 'Вы уверены?', :method => :delete, :class => "btn danger" %>
@@ -28,7 +39,7 @@
 		<h3>Новая котельная</h3>
 	</div>
 	<div class="modal-body">
-		<%= render :partial => "form", :locals => { :create => true } %>	
+		<%= render "form", :boiler_room => @boiler_room, :create => true %>	
 	</div>
 </div>
 <button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новая котельная</button>
