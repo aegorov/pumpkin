@@ -1,8 +1,8 @@
 (function() {
   $(document).ready(function() {
     var active_menu;
-    $('#boiler_rooms').tablesorter();
-    $("#consumers").tablesorter();
+    $("table#boiler_rooms").tablesorter();
+    $("table#consumers").tablesorter();
     active_menu = function() {
       var loc;
       loc = window.location.pathname.match(/^\/?(\w+)\b/)[1];
