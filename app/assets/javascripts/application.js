@@ -8,4 +8,5 @@
 //= require_tree .
 $(function() {
 	$("#boiler_rooms").tablesorter();
+	$("#consumers").tablesorter();
 });

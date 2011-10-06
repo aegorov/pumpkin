@@ -1,10 +1,13 @@
 <table class="zebra-striped" id="boiler_rooms">
+<thead>
   <tr>
-    <th>Название котельной</th>
-    <th>Номер</th>
-	<th></th>
-	<th></th>
+	 	<th>Название котельной</th>
+	 	<th>Номер</th>
+	 	<th></th>
+	 	<th></th>
   </tr>
+</thead>
+ <tbody>
 <% @boiler_rooms.each do |boiler_room| %>
   <tr>
     <td><%= boiler_room.name %></td>
@@ -17,6 +20,7 @@
 	</td>
   </tr>
 <% end %>
+ </tbody>
 </table>
 <div id="modal-from-dom" class="modal hide fade">
 	<div class="modal-header">

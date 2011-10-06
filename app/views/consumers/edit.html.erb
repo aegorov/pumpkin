@@ -1,5 +1,5 @@
 <h1>Editing consumer</h1>
 
-<%= render 'form' %>
+<%= render :partial => "form", :locals => { :create => false } %>
 
 <%= button_to 'Назад', consumers_path, :method => :get, :class => "btn" %>

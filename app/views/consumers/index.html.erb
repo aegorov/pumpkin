@@ -1,11 +1,13 @@
 <table class="zebra-striped" id="consumers">
+  <thead>	
   <tr>
     <th>Название</th>
     <th>Номер</th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+<tbody>
 <% @consumers.each do |consumer| %>
   <tr>
     <td><%= consumer.name %></td>
@@ -14,6 +16,7 @@
     <td><%= button_to 'Удалить', consumer, :confirm => 'Вы уверены', :method => :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 <div id="modal-from-dom" class="modal hide fade">
 	<div class="modal-header">
