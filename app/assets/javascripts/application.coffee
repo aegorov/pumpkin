@@ -1,6 +1,6 @@
 $(document).ready ->	
-	$('#boiler_rooms').tablesorter()
-	$("#consumers").tablesorter()
+	$('table#boiler_rooms').tablesorter()
+	$("table#consumers").tablesorter()
 	active_menu =->
 		loc = window.location.pathname.match(/^\/?(\w+)\b/)[1]
 		switch loc
