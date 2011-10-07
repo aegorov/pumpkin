@@ -1,7 +1,7 @@
 (function() {
   $(document).ready(function() {
     var active_menu;
-    $('table#boiler_rooms').tablesorter();
+    $("table#boiler_rooms").tablesorter();
     $("table#consumers").tablesorter();
     active_menu = function() {
       var loc;
