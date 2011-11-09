@@ -1,9 +1,10 @@
+# encoding: UTF-8
 class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-
+    @transaction = Transaction.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
@@ -20,23 +21,7 @@ class TransactionsController < ApplicationController
       format.json { render json: @transaction }
     end
   end
-
-  # GET /transactions/new
-  # GET /transactions/new.json
-  def new
-    @transaction = Transaction.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @transaction }
-    end
-  end
-
-  # GET /transactions/1/edit
-  def edit
-    @transaction = Transaction.find(params[:id])
-  end
-
+  
   # POST /transactions
   # POST /transactions.json
   def create
@@ -44,26 +29,10 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to transactions_path() }
         format.json { render json: @transaction, status: :created, location: @transaction }
       else
         format.html { render action: "new" }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /transactions/1
-  # PUT /transactions/1.json
-  def update
-    @transaction = Transaction.find(params[:id])
-
-    respond_to do |format|
-      if @transaction.update_attributes(params[:transaction])
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end

@@ -1,3 +1,4 @@
+<% # coding: UTF-8 %>
 <%= form_for(@transaction) do |f| %>
   <% if @transaction.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +11,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="clearfix">
+    <%= f.label :boiler_room_id, "Котельная"%>
+      <div class="input">
+        <%= f.select :boiler_room_id, BoilerRoom.all.collect {|b| [ b.name, b.id ]} %>
+      </div>
   </div>
+  <div class="clearfix">
+    <%= f.label :consumer_id, "Потребитель"%>
+      <div class="input">
+        <%= f.select :consumer_id, Consumer.all.collect {|c| [ c.name, c.id ]} %>
+      </div>
+  </div>
+   <div class="clearfix">
+    <%= f.label :title, "Описание" %>
+    <div class="input">
+      <%= f.text_field :title %>
+   </div>  
+  </div>
+  <div class="clearfix">
+    <%= f.label :value, "Размер" %>
+    <div class="input">
+      <%= f.text_field :value %>
+    </div>  
+  </div>
+  <div class="actions">
+     <%= f.submit "Создать", :class => "btn primary" %>
+  </div>  
 <% end %>

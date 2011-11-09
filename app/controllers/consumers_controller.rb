@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ConsumersController < ApplicationController
   # GET /consumers
   # GET /consumers.json

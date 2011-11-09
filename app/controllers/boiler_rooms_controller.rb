@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class BoilerRoomsController < ApplicationController
   # GET /boiler_rooms
   # GET /boiler_rooms.json

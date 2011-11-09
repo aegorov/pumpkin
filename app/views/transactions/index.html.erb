@@ -1,21 +1,35 @@
-<h1>Listing transactions</h1>
-
-<table>
+<table class="zebra-striped" id="transactions">
+  <thead> 
   <tr>
-    <th></th>
-    <th></th>
+    <th>Котельная</th>
+    <th>Потребитель</th>
+    <th>Размер поставки</th>
+    <th>Комментарий</th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @transactions.each do |transaction| %>
   <tr>
-    <td><%= link_to 'Show', transaction %></td>
-    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-    <td><%= link_to 'Destroy', transaction, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%=transaction.boiler_room.name%></td>
+    <td><%=transaction.consumer.name%></td>
+    <td><%=transaction.value%></td>
+    <td><%=transaction.title%></td>
+    <td><%= link_to 'Удалить', transaction, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
+  <tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Transaction', new_transaction_path %>
+<div id="modal-from-dom" class="modal hide fade">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Новая поставка</h3>
+  </div>
+  <div class="modal-body">
+    <%= render "form", :transaction => @transcation, :create => true %> 
+  </div>
+</div>
+<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новая поставка</button>
