@@ -3,6 +3,8 @@ class Transaction < ActiveRecord::Base
 	belongs_to :boiler_room
 	belongs_to :consumer
 
+	validates :value, presence: { :on => :create }
+
 	after_save :add_total_values
 	after_destroy :destroy_total_values
 

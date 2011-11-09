@@ -13,7 +13,7 @@
   <tr>
     <td><%=transaction.boiler_room.name%></td>
     <td><%=transaction.consumer.name%></td>
-    <td><%=transaction.value%></td>
+    <td><%=transaction.value%> m3</td>
     <td><%=transaction.title%></td>
     <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn danger" %></td>
   </tr>

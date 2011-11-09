@@ -5,6 +5,7 @@ gem 'css-bootstrap-rails'
 gem 'sqlite3'
 gem 'json'
 gem "russian" 
+gem 'client_side_validations'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

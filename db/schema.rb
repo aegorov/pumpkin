@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109135213) do
+ActiveRecord::Schema.define(:version => 20111109174232) do
 
   create_table "boiler_rooms", :force => true do |t|
     t.string   "name"
-    t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "total",      :default => 0
@@ -23,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20111109135213) do
 
   create_table "consumers", :force => true do |t|
     t.string   "name"
-    t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "total",      :default => 0
