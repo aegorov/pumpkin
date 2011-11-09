@@ -48,6 +48,7 @@ class ConsumersController < ApplicationController
   # DELETE /consumers/1.json
   def destroy
     @consumer = Consumer.find(params[:id])
+    @consumer.transactions.destroy_all
     @consumer.destroy
 
     respond_to do |format|

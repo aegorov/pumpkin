@@ -2,7 +2,7 @@
 <thead>
   <tr>
 	 	<th>Котельная</th>
-	 	<th>Номер</th>
+	 	<th>Всего</th>
 	 	<th></th>
 	 	<th></th>
   </tr>
@@ -11,7 +11,7 @@
 <% @boiler_rooms.each do |boiler_room| %>
   <tr>
     <td><%= boiler_room.name %></td>
-    <td><%= boiler_room.number %></td>
+    <td><%= boiler_room.total %></td>
     <td>
 		<div id="modal-from-dom<%=boiler_room.id%>" class="modal hide fade">
 			<div class="modal-header">

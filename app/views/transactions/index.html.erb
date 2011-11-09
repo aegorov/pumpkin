@@ -15,7 +15,7 @@
     <td><%=transaction.consumer.name%></td>
     <td><%=transaction.value%></td>
     <td><%=transaction.title%></td>
-    <td><%= link_to 'Удалить', transaction, confirm: 'Вы уверены?', method: :delete, :class => "btn danger" %></td>
+    <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
   <tbody>

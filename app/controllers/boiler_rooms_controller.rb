@@ -73,6 +73,7 @@ class BoilerRoomsController < ApplicationController
   # DELETE /boiler_rooms/1.json
   def destroy
     @boiler_room = BoilerRoom.find(params[:id])
+    @boiler_room.transactions.destroy_all
     @boiler_room.destroy
 
     respond_to do |format|
