@@ -4,7 +4,6 @@ class BoilerRoomsController < ApplicationController
   # GET /boiler_rooms.json
   def index
     @boiler_rooms = BoilerRoom.all
-    @boiler_room = BoilerRoom.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @boiler_rooms }

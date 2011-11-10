@@ -32,13 +32,3 @@
 <% end %>
 </tbody>
 </table>
-<div id="modal-from-dom" class="modal hide fade">
-	<div class="modal-header">
-		<a href="#" class="close">&times;</a>
-		<h3>Новый потребитель</h3>
-	</div>
-	<div class="modal-body">
-		<%= render "form", :consumer => @consumer, :create => true %>	
-	</div>
-</div>
-<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новый потребитель</button>

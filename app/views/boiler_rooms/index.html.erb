@@ -33,13 +33,3 @@
 <% end %>
  </tbody>
 </table>
-<div id="modal-from-dom" class="modal hide fade">
-	<div class="modal-header">
-		<a href="#" class="close">&times;</a>
-		<h3>Новая котельная</h3>
-	</div>
-	<div class="modal-body">
-		<%= render "form", :boiler_room => @boiler_room, :create => true %>	
-	</div>
-</div>
-<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn primary">Новая котельная</button>

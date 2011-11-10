@@ -4,8 +4,6 @@ class ConsumersController < ApplicationController
   # GET /consumers.json
   def index
     @consumers = Consumer.all
-    @consumer = Consumer.new
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @consumers }

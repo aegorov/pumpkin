@@ -18,18 +18,46 @@
             	<li class="dropdown" id="test">
              		 <a href="#" class="dropdown-toggle">Добавить</a>
               		 <ul class="dropdown-menu">
-                    <li><a href="#">Поставку</a></li>
+                    <li><a href="#" data-controls-modal="modal-transaction" data-backdrop="true" data-keyboard="true">Новая поставка</a></li>
                     <li class="divider"></li>
-                	 	<li><a href="#">Потребителя</a></li>
-               			<li><a href="#">Котельную</a></li>
+                	 	<li><a href="#" data-controls-modal="modal-consumer" data-backdrop="true" data-keyboard="true">Потребителя</a></li>
+               			<li><a href="#" data-controls-modal="modal-boiler_room" data-backdrop="true" data-keyboard="true">Котельную</a></li>
               		</ul>
             	</li>
+              <li id="search"><%= link_to "Поиск", search_transactions_path()%></li>
 			</ul>
 		</div>
 	</div>
 </div>
 <div class="container" style="padding-top: 60px;">
 	<%= yield %>	
+  <div id="modal-transaction" class="modal hide fade">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Новая поставка</h3>
+  </div>
+  <div class="modal-body">
+    <%= render "transactions/form", :transaction => @transcation %> 
+  </div>
+</div>
+<div id="modal-consumer" class="modal hide fade">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Новый потребитель</h3>
+  </div>
+  <div class="modal-body">
+    <%= render "consumers/form", :consumer => @consumer, :create => :true %> 
+  </div>
+</div>
+<div id="modal-boiler_room" class="modal hide fade">
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Новая котельная</h3>
+  </div>
+  <div class="modal-body">
+    <%= render "boiler_rooms/form", :boiler_room => @boiler_room, :create => :true %> 
+  </div>
+</div>
 <footer>
 	<p>&copy; ОАО "ЖилГорСтрой" 2011</p>
 </footer>	

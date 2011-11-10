@@ -1,6 +1,8 @@
 Pumpkin::Application.routes.draw do
 
-  resources :transactions, :only => [:index, :create, :destroy]
+  resources :transactions, :only => [:index, :create, :destroy] do
+  	get :search, :on => :collection
+  end
   resources :consumers, :except => :show
   resources :boiler_rooms, :except => :show
   

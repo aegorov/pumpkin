@@ -4,13 +4,15 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-    @transaction = Transaction.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
     end
   end
 
+  def search
+    
+  end
   # GET /transactions/1
   # GET /transactions/1.json
   def show
