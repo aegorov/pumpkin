@@ -3,11 +3,11 @@
 <head>
   <title>Система автоматизации учета поставок топлива для котельних</title>
   <%= stylesheet_link_tag  "application" %>
-  <%= javascript_include_tag "jquery","jquery.tablesorter.min","bootstrap-modal","bootstrap-dropdown", "application", "rails.validations.js" %>
+  <%= javascript_include_tag "jquery","jquery.tablesorter.min","bootstrap-modal","bootstrap-dropdown", "application", "rails.validations.js", "bootstrap-alerts", "bootstrap-scrollspy", "bootstrap-buttons", "bootstrap-tabs", "bootstrap-twipsy", "bootstrap-popover" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="topbar">
+<div class="topbar" data-dropdown="dropdown">
     <div class="topbar-inner">
 		<div class="container">
 			<%=link_to "Pumpkin", root_path(), :class =>"brand" %>
@@ -16,12 +16,12 @@
 				<li id="boiler_rooms"><%=link_to "Котельные", boiler_rooms_path()%></li>
             	<li id="consumers"><%=link_to "Потребители", consumers_path()%></li>
             	<li class="dropdown" id="test">
-             		 <a href="#" class="dropdown-toggle">Dropdown</a>
+             		 <a href="#" class="dropdown-toggle">Добавить</a>
               		 <ul class="dropdown-menu">
-                	 	<li><a href="#">Secondary link</a></li>
-               			<li><a href="#">Something else here</a></li>
-                		<li class="divider"></li>
-                		<li><a href="#">Another link</a></li>
+                    <li><a href="#">Поставку</a></li>
+                    <li class="divider"></li>
+                	 	<li><a href="#">Потребителя</a></li>
+               			<li><a href="#">Котельную</a></li>
               		</ul>
             	</li>
 			</ul>
