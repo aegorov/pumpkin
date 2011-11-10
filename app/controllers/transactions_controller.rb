@@ -10,8 +10,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # GET /transactions/search
   def search
-    
+    @search = Transaction.search(params[:search])
+    @transactions = @search.all  
   end
   # GET /transactions/1
   # GET /transactions/1.json

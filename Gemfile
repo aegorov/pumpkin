@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'json'
 gem "russian" 
 gem 'client_side_validations'
+gem "meta_search"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

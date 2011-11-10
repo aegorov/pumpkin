@@ -1,1 +1,49 @@
-<h2> Поиск </h2>
+<%= form_for @search, :url => search_transactions_path do |f| %>
+  <div class="clearfix">
+  	<div class="input">
+      <div class="inline-inputs">
+        С
+    	  <%= f.text_field :created_at_gteq, :class => "small" %>
+        <input class="mini" type="text" value="12:00" />
+        По
+        <%= f.text_field :created_at_lteq, :class => "small" %>
+        <input class="mini" type="text" value="11:59" />
+        <span class="help-block">Выберите конечную и начальную дату</span>
+      </div> 
+    </div>
+  </div>
+    <%= f.submit "Найти", :class => "btn large primary" %>
+  <div>  
+ <% end %>
+ <br />
+ <table class="zebra-striped" id="transactions">
+  <thead> 
+  <tr>
+    <th>Котельная</th>
+    <th>Потребитель</th>
+    <th>Размер поставки</th>
+    <th>Дата</th>
+    <th>Комментарий</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @transactions.each do |transaction| %>
+  <tr>
+    <td><%=transaction.boiler_room.name%></td>
+    <td><%=transaction.consumer.name%></td>
+    <td><%=transaction.value%> м<sup>3</sup></td>
+    <td><%=transaction.created_at.strftime("%R %D")%></td>
+    <td><%=transaction.title%></td>
+    <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn danger" %></td>
+  </tr>
+<% end %>
+  </tbody>
+  <tr>
+  <td></td>
+  <td><h3>Всего:</h3></td>
+  <td><h4><%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h4></td>
+  <td></td>
+  <td></td>
+ </tr>
+</table>
