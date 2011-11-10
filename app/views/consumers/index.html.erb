@@ -2,7 +2,7 @@
   <thead>	
   <tr>
     <th>Потребитель</th>
-    <th>Всего</th>
+    <th>Получено всего</th>
     <th></th>
     <th></th>
   </tr>
@@ -11,7 +11,7 @@
 <% @consumers.each do |consumer| %>
   <tr>
     <td><%= consumer.name %></td>
-    <td><%= consumer.total%> м3</td>
+    <td><%= consumer.total%> м<sup>3</sup></td>
     <td>
 		<div id="modal-from-dom<%=consumer.id%>" class="modal hide fade">
 			<div class="modal-header">

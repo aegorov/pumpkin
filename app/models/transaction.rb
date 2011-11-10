@@ -19,4 +19,5 @@ class Transaction < ActiveRecord::Base
 		self.boiler_room.total -= self.value
 		self.consumer.save  && self.boiler_room.save
 	end
+	
 end

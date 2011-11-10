@@ -13,12 +13,19 @@
   <tr>
     <td><%=transaction.boiler_room.name%></td>
     <td><%=transaction.consumer.name%></td>
-    <td><%=transaction.value%> m3</td>
+    <td><%=transaction.value%> м<sup>3</sup></td>
     <td><%=transaction.title%></td>
     <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn danger" %></td>
   </tr>
 <% end %>
-  <tbody>
+  </tbody>
+  <tr>
+  <td></td>
+  <td><h3>Всего:</h3></td>
+  <td><h4><%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h4></td>
+  <td></td>
+  <td></td>
+ </tr>
 </table>
 
 <br />

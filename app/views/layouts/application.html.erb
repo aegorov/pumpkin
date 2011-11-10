@@ -3,7 +3,7 @@
 <head>
   <title>Система автоматизации учета поставок топлива для котельних</title>
   <%= stylesheet_link_tag  "application" %>
-  <%= javascript_include_tag "jquery","jquery.tablesorter.min","bootstrap-modal", "application", "rails.validations.js" %>
+  <%= javascript_include_tag "jquery","jquery.tablesorter.min","bootstrap-modal","bootstrap-dropdown", "application", "rails.validations.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,6 +15,15 @@
 			    <li id="transactions"><%=link_to "Поставки", transactions_path()%></li>
 				<li id="boiler_rooms"><%=link_to "Котельные", boiler_rooms_path()%></li>
             	<li id="consumers"><%=link_to "Потребители", consumers_path()%></li>
+            	<li class="dropdown" id="test">
+             		 <a href="#" class="dropdown-toggle">Dropdown</a>
+              		 <ul class="dropdown-menu">
+                	 	<li><a href="#">Secondary link</a></li>
+               			<li><a href="#">Something else here</a></li>
+                		<li class="divider"></li>
+                		<li><a href="#">Another link</a></li>
+              		</ul>
+            	</li>
 			</ul>
 		</div>
 	</div>
