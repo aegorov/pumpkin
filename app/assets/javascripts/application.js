@@ -1,44 +1,9 @@
-(function() {
-  $(document).ready(function() {
-    var activate_menu, init;
-    init = function() {
-      $.datepicker.regional['ru'] = {
-        closeText: 'Закрыть',
-        prevText: '&#x3c;Пред',
-        nextText: 'След&#x3e;',
-        currentText: 'Сегодня',
-        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-        dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
-        dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
-        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dateFormat: 'dd.mm.yy',
-        firstDay: 1,
-        isRTL: false
-      };
-      $.datepicker.setDefaults($.datepicker.regional['ru']);
-      $("#search_created_at_lteq").datepicker();
-      $("#search_created_at_gteq").datepicker();
-      return $("table").tablesorter();
-    };
-    activate_menu = function() {
-      var loc;
-      loc = window.location.pathname.match(/^\/?(\w+)\b/);
-      if (loc !== null) {
-        switch (loc[1]) {
-          case "boiler_rooms":
-            return $("ul.nav li#boiler_rooms").addClass("active");
-          case "consumers":
-            return $("ul.nav li#consumers").addClass("active");
-          case "transactions":
-            return $("ul.nav li#transactions").addClass("active");
-        }
-      } else {
-        return $("ul.nav li#transactions").addClass("active");
-      }
-    };
-    init();
-    activate_menu();
-    return false;
-  });
-}).call(this);
+// This is a manifest file that'll be compiled into including all the files listed below.
+// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
+// be included in the compiled file accessible from http://example.com/assets/application.js
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+//= require jquery
+//= require jquery_ujs
+//= require_tree
