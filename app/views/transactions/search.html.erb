@@ -2,7 +2,7 @@
   <div class="clearfix">
   	<div class="input">
       <div class="inline-inputs">
-          С
+            Поставки с
     	  <%= f.text_field :created_at_gteq, :class => "small" %>
           По
         <%= f.text_field :created_at_lteq, :class => "small" %>
@@ -10,6 +10,12 @@
       </div> 
     </div>
   </div>
+  <div class="clearfix">
+   <%= f.label :status_equals, "Со статусом" %>
+    <div class="input">
+    <%= f.select :status_equals, [["Отправлено","send" ],["Получено", "received"],["Расходуется", "use"],["Израсходовано", "finish"]] %>
+    </div>
+  </div>  
   <div class="row">
     <div class="span6" style="text-align:center;">
       <%= f.submit "Найти", :class => "btn large primary", :size => 300 %>
@@ -20,6 +26,7 @@
      </div>  
   </div>
  <br />
+ <% if @transactions.size > 0 %>
  <table class="zebra-striped" id="transactions">
   <thead> 
   <tr>
@@ -53,3 +60,6 @@
   <td></td>
  </tr>
 </table>
+<% else %>
+  <h1>Ничего не найдено</h1>
+<% end %>
