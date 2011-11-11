@@ -1,5 +1,4 @@
 (function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   $(document).ready(function() {
     var activate_menu, init;
     init = function() {
@@ -40,9 +39,6 @@
     };
     init();
     activate_menu();
-    $('.label').click(__bind(function() {
-      return console.log("res");
-    }, this));
     return false;
   });
 }).call(this);

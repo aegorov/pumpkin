@@ -5,6 +5,11 @@ class Transaction < ActiveRecord::Base
 	belongs_to :consumer
 
 	default_scope :order => 'created_at DESC'
+	scope :finish, where(:status => 'finish')
+	scope :use, where(:status => 'use')
+	scope :sending, where(:status => 'send')
+	scope :received, where(:status => 'received')
+
 
 	#validates :value, presence: { :on => :create }
 

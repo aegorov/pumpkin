@@ -1,3 +1,13 @@
+<div class="row show-grid">
+  <div class="span2"><h3>Показать:</h3></div>
+  <div class="span2"><%=link_to "Отправленные", transactions_path(:status => "send"), :class => "btn small"%></div>
+  <div class="span2"><%=link_to "Полученные", "#", :class => "btn small success"%></div>   
+  <div class="span2"><%=link_to "Расходуемые", "#", :class => "btn small info"%></div>
+  <div class="span2"><%=link_to "Использованные", "#", :class => "btn small danger"%></div>
+  <div class="span2"></div>
+  <div class="span6" style="text-align:center;"><h3>Всего:<%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h3></div> 
+</div>
+<br />
 <table class="zebra-striped" id="transactions">
   <thead> 
   <tr>
@@ -24,7 +34,7 @@
     <div id="modal-from-dom<%=transaction.id%>" class="modal hide fade">
       <div class="modal-header">
         <a href="#" class="close">&times;</a>
-        <h3>Изменить статус</h3>
+        <h3 style="text-align:center;">Изменить статус</h3>
       </div>
       <div class="modal-body">
         <%= render "change_status_form", :transaction => transaction %> 
@@ -39,11 +49,4 @@
   </tr>
 <% end %>
   </tbody>
-  <tr>
-  <td></td>
-  <td><h3>Всего:</h3></td>
-  <td><h4><%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h4></td>
-  <td></td>
-  <td></td>
- </tr>
 </table>

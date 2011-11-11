@@ -31,6 +31,4 @@ $(document).ready ->
 			$("ul.nav li#transactions").addClass "active"
 	init()
 	activate_menu()
-	$('.label').click => 
-		console.log("res")
 	false

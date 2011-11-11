@@ -16,7 +16,9 @@
 				  <li id="boiler_rooms"><%=link_to "Котельные", boiler_rooms_path()%></li>
           <li id="consumers"><%=link_to "Потребители", consumers_path()%></li>
           <li id="search"><%= link_to "Поиск", search_transactions_path()%></li>
-          <li class="dropdown" id="test">
+      </ul>
+      <ul class="nav secondary-nav">
+          <li class="dropdown">
              		 <a href="#" class="dropdown-toggle"><span style="font-size:17px;">Добавить</span></a>
               		 <ul class="dropdown-menu">
                     <li><a href="#" data-controls-modal="modal-transaction" data-backdrop="true" data-keyboard="true">Поставку</a></li>
@@ -34,7 +36,7 @@
   <div id="modal-transaction" class="modal hide fade">
   <div class="modal-header">
     <a href="#" class="close">&times;</a>
-    <h3>Новая поставка</h3>
+    <h3 style="text-align:center;">Новая поставка</h3>
   </div>
   <div class="modal-body">
     <%= render "transactions/form", :transaction => @transcation %> 
@@ -43,7 +45,7 @@
 <div id="modal-consumer" class="modal hide fade">
   <div class="modal-header">
     <a href="#" class="close">&times;</a>
-    <h3>Новый потребитель</h3>
+    <h3 style="text-align:center;">Новый потребитель</h3>
   </div>
   <div class="modal-body">
     <%= render "consumers/form", :consumer => @consumer, :create => :true %> 
@@ -52,7 +54,7 @@
 <div id="modal-boiler_room" class="modal hide fade">
   <div class="modal-header">
     <a href="#" class="close">&times;</a>
-    <h3>Новая котельная</h3>
+    <h3 style="text-align:center;">Новая котельная</h3>
   </div>
   <div class="modal-body">
     <%= render "boiler_rooms/form", :boiler_room => @boiler_room, :create => :true %> 

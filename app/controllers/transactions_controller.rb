@@ -3,7 +3,10 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    if params[:status]
+    else
+      @transactions = Transaction.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }

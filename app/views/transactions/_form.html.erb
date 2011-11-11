@@ -12,30 +12,26 @@
     </div>
   <% end %>
   <div class="clearfix">
-    <%= f.label :boiler_room_id, "Котельная"%>
       <div class="input">
         <%= f.select :boiler_room_id, BoilerRoom.all.collect {|b| [ b.name, b.id ]} %>
       </div>
   </div>
   <div class="clearfix">
-    <%= f.label :consumer_id, "Потребитель"%>
       <div class="input">
         <%= f.select :consumer_id, Consumer.all.collect {|c| [ c.name, c.id ]} %>
       </div>
   </div>
    <div class="clearfix">
-    <%= f.label :title, "Описание" %>
     <div class="input">
-      <%= f.text_field :title %>
+      <%= f.text_field :title, :placeholder => "Описание" %>
    </div>  
   </div>
   <div class="clearfix">
-    <%= f.label :value, "Размер" %>
     <div class="input">
-      <%= f.text_field :value %> м<sup>3</sup>
+      <%= f.text_field :value, :placeholder => "Размер"%> м<sup>3</sup>
     </div>  
   </div>
   <div class="actions">
-     <%= f.submit "Создать", :class => "btn primary" %>
+     <%= f.submit "Добавить", :class => "btn large primary", :style => "text-align:center;" %>
   </div>  
 <% end %>

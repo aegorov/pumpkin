@@ -1,24 +1,12 @@
 <%= form_for(boiler_room) do |f| %>
-  <% if boiler_room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(boiler_room.errors.count, "error") %> prohibited this boiler_room from being saved:</h2>
-
-      <ul>
-      <% boiler_room.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="clearfix">
-    	<%= f.label :name, "Имя" %>
 	  <div class="input">
-    	<%= f.text_field :name %>
+      <%= f.text_field :name, :placeholder => "Имя"%>
 	</div>
   </div>
   <div class="actions">
 	<% if create%>
-		<%= f.submit 'Создать', :class => "btn primary"%>
+		<%= f.submit 'Добавить', :class => "btn primary"%>
 	<% else %>	
 		<%= f.submit 'Обновить', :class => "btn primary"%>
 	<% end %>
