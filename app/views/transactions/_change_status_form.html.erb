@@ -1,0 +1,11 @@
+<%= form_for transaction, :action => :update do |f| %>
+  <div class="clearfix">
+    <%= f.label :status, "Статус"%>
+      <div class="input">
+        <%= f.select :status, [["Отправлено","send" ],["Получено", "received"],["Расходуется", "use"],["Израсходовано", "finish"]] %>
+      </div>
+  </div>
+  <div class="actions">
+     <%= f.submit "Поменять", :class => "btn primary" %>
+  </div>  
+<% end %>

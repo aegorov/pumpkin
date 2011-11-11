@@ -6,9 +6,9 @@ class Transaction < ActiveRecord::Base
 
 	default_scope :order => 'created_at DESC'
 
-	validates :value, presence: { :on => :create }
+	#validates :value, presence: { :on => :create }
 
-	after_save :add_total_values
+	after_create :add_total_values
 	after_destroy :destroy_total_values
 
 	def add_total_values

@@ -19,16 +19,6 @@ class TransactionsController < ApplicationController
       format.csv { render :csv => @transactions, :filename => "transactions" }
     end
   end
-  # GET /transactions/1
-  # GET /transactions/1.json
-  def show
-    @transaction = Transaction.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @transaction }
-    end
-  end
   
   # POST /transactions
   # POST /transactions.json
@@ -42,6 +32,20 @@ class TransactionsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /transactions/1
+  def update
+    @transaction = Transaction.find(params[:id])
+
+    respond_to do |format|
+      if @transaction.update_attributes(params[:transaction])
+        format.html { redirect_to transactions_path() }
+        format.json { head :ok }
+      else
+        format.html { render :action => "edit" }
       end
     end
   end
