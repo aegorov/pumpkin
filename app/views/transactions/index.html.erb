@@ -1,9 +1,9 @@
 <div class="row show-grid">
   <div class="span2"><h3>Показать:</h3></div>
   <div class="span2"><%=link_to "Отправленные", transactions_path(:status => "send"), :class => "btn small"%></div>
-  <div class="span2"><%=link_to "Полученные", "#", :class => "btn small success"%></div>   
-  <div class="span2"><%=link_to "Расходуемые", "#", :class => "btn small info"%></div>
-  <div class="span2"><%=link_to "Использованные", "#", :class => "btn small danger"%></div>
+  <div class="span2"><%=link_to "Полученные", transactions_path(:status => "received"), :class => "btn small success"%></div>   
+  <div class="span2"><%=link_to "Расходуемые", transactions_path(:status => "use"), :class => "btn small info"%></div>
+  <div class="span2"><%=link_to "Использованные", transactions_path(:status => "finish"), :class => "btn small danger"%></div>
   <div class="span2"></div>
   <div class="span6" style="text-align:center;"><h3>Всего:<%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h3></div> 
 </div>

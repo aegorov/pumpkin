@@ -4,6 +4,18 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     if params[:status]
+      case params[:status]
+        when 'send'
+          @transactions = Transaction.sending
+        when 'finish'
+          @transactions = Transaction.finish
+        when 'use'
+          @transactions = Transaction.use
+        when 'received'
+          @transactions = Transaction.received
+        else
+          @transactions = Transaction.all
+      end
     else
       @transactions = Transaction.all
     end
