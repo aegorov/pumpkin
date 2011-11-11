@@ -10,10 +10,15 @@
       </div> 
     </div>
   </div>
-    <%= f.submit "Найти", :class => "btn large primary" %>
-  <div> 
-  <%=link_to "Скачать XML", search_transactions_path(:format => :csv, :search => params[:search]), :class => "btn large success" if @transactions.size > 0 %>
- <% end %>
+  <div class="row">
+    <div class="span6" style="text-align:center;">
+      <%= f.submit "Найти", :class => "btn large primary", :size => 300 %>
+     <% end %>
+    </div>
+    <div class="span6" style="text-align:center;">
+       <%=link_to "Скачать XML", search_transactions_path(:format => :csv, :search => params[:search]), :class => "btn large success" if @transactions.size > 0 %>
+     </div>  
+  </div>
  <br />
  <table class="zebra-striped" id="transactions">
   <thead> 
@@ -21,6 +26,7 @@
     <th>Котельная</th>
     <th>Потребитель</th>
     <th>Размер поставки</th>
+    <th>Статус</th>
     <th>Дата</th>
     <th>Комментарий</th>
     <th></th>
@@ -32,6 +38,7 @@
     <td><%=transaction.boiler_room.name%></td>
     <td><%=transaction.consumer.name%></td>
     <td><%=transaction.value%> м<sup>3</sup></td>
+    <td><%=transaction.status%></td>
     <td><%=transaction.created_at.strftime("%R %D")%></td>
     <td><%=transaction.title%></td>
     <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn danger" %></td>

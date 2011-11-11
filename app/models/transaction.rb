@@ -1,7 +1,10 @@
 # encoding: UTF-8
 class Transaction < ActiveRecord::Base
+
 	belongs_to :boiler_room
 	belongs_to :consumer
+
+	default_scope :order => 'created_at DESC'
 
 	validates :value, presence: { :on => :create }
 
