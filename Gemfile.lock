@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/crafterm/comma.git
+  revision: b49f5490d6f5ff2c6bc7f652952386553454e269
+  specs:
+    comma (0.4.2)
+      activesupport (>= 2.2.2)
+      fastercsv
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -47,6 +55,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    fastercsv (1.5.4)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.14)
@@ -125,6 +134,7 @@ PLATFORMS
 DEPENDENCIES
   client_side_validations
   coffee-rails (~> 3.1.0)
+  comma!
   css-bootstrap-rails
   jquery-rails
   json

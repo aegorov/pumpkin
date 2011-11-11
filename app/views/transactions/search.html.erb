@@ -4,16 +4,15 @@
       <div class="inline-inputs">
           С
     	  <%= f.text_field :created_at_gteq, :class => "small" %>
-        <input class="mini" type="text" value="12:00" />
           По
         <%= f.text_field :created_at_lteq, :class => "small" %>
-        <input class="mini" type="text" value="11:59" />
         <span class="help-block">Выберите конечную и начальную дату</span>
       </div> 
     </div>
   </div>
     <%= f.submit "Найти", :class => "btn large primary" %>
-  <div>  
+  <div> 
+  <%=link_to "Скачать XML", search_transactions_path(:format => :csv, :search => params[:search]), :class => "btn large success" if @transactions.size > 0 %>
  <% end %>
  <br />
  <table class="zebra-striped" id="transactions">

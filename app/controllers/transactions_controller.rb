@@ -14,6 +14,10 @@ class TransactionsController < ApplicationController
   def search
     @search = Transaction.search(params[:search])
     @transactions = @search.all  
+    respond_to do |format|
+      format.html
+      format.csv { render :csv => @transactions, :filename => "transactions" }
+    end
   end
   # GET /transactions/1
   # GET /transactions/1.json

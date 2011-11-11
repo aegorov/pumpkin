@@ -3,10 +3,12 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'css-bootstrap-rails'
 gem 'sqlite3'
+gem 'jquery-rails'
 gem 'json'
 gem "russian" 
 gem 'client_side_validations'
 gem "meta_search"
+gem "comma", :git => "git://github.com/crafterm/comma.git" 
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -18,5 +20,3 @@ group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
   gem 'pg'
 end
-
-gem 'jquery-rails'
