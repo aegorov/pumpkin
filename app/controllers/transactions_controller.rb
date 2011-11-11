@@ -19,9 +19,10 @@ class TransactionsController < ApplicationController
     else
       @transactions = Transaction.all
     end
+    puts "#{@transactions.size}"
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @transactions }
+      format.csv { render :csv => @transactions, :filename => "transactions" }
     end
   end
 

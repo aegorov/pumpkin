@@ -28,11 +28,12 @@ class Transaction < ActiveRecord::Base
 		self.consumer.save  && self.boiler_room.save
 	end
 	#CSV support
-  comma do
+  comma  do
   	boiler_room :name => "Котельная"
   	consumer :name  => "Потребитель"
   	value "Размер поставки"
   	title "Комментарий"
+  	status "Статус"
     created_at "Created at"
   end
 
