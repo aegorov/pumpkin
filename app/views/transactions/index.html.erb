@@ -8,6 +8,7 @@
   <div class="span4" style="text-align:center;"><h4>Всего: <%=@transactions.map(&:value).inject(&:+)%> м<sup>3</sup></h4></div> 
 </div>
 <br />
+<% if @transactions.size > 0 %>
 <table class="zebra-striped" id="transactions">
   <thead> 
   <tr>
@@ -22,31 +23,8 @@
   </tr>
   </thead>
   <tbody>
-<% @transactions.each do |transaction| %>
-  <tr>
-    <td><%=transaction.boiler_room.name%></td>
-    <td><%=transaction.consumer.name%></td>
-    <td><%=transaction.value%> м<sup>3</sup></td>
-    <td><%=show_status(transaction.status)%></td>
-    <td><%=transaction.created_at.strftime("%R %D")%></td>
-    <td><%=transaction.title%></td>
-    <td>
-    <div id="modal-from-dom<%=transaction.id%>" class="modal hide fade">
-      <div class="modal-header">
-        <a href="#" class="close">&times;</a>
-        <h3 style="text-align:center;">Изменить статус</h3>
-      </div>
-      <div class="modal-body">
-        <%= render "change_status_form", :transaction => transaction %> 
-      </div>
-    </div>
-    <%= link_to 'Изменить статус', "#",{:class => "btn small info",
-                    "data-backdrop" => true,
-                    "data-controls-modal" => "modal-from-dom#{transaction.id}",
-                    "data-keyboard" => true } %>
-    </td>
-    <td><%= button_to 'Удалить', transaction, confirm: 'Вы уверены?', :method => :delete, :class => "btn small danger" %></td>
-  </tr>
-<% end %>
+    <%= render @transactions %>
   </tbody>
 </table>
+<% end %>
+
