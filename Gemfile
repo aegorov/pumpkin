@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'css-bootstrap-rails'
-gem 'sqlite3'
 gem 'jquery-rails'
 gem 'json'
 gem "russian" 
@@ -18,4 +17,8 @@ end
 
 group :production do
   gem 'pg'
+end
+
+group :development do
+	gem 'sqlite3'
 end
