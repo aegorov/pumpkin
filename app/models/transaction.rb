@@ -27,6 +27,7 @@ class Transaction < ActiveRecord::Base
 		self.boiler_room.total -= self.value
 		self.consumer.save  && self.boiler_room.save
 	end
+	
 	#CSV support
   comma  do
   	boiler_room :name => "Котельная"

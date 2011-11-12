@@ -4,8 +4,8 @@
   <div class="span2"><%=link_to "Отправленные", transactions_path(:status => "send"), :class => "btn small"%></div>
   <div class="span2"><%=link_to "Полученные", transactions_path(:status => "received"), :class => "btn small success"%></div>   
   <div class="span2"><%=link_to "Расходуемые", transactions_path(:status => "use"), :class => "btn small warning"%></div>
-  <div class="span2"><%=link_to "Использованные", transactions_path(:status => "finish"), :class => "btn small danger"%></div>
-  <div class="span4" style="text-align:center;"><h4>Всего: <%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h4></div> 
+  <div class="span2"><%=link_to "Израсходованные", transactions_path(:status => "finish"), :class => "btn small danger"%></div>
+  <div class="span4" style="text-align:center;"><h4>Всего: <%=@transactions.map(&:value).inject(&:+)%> м<sup>3</sup></h4></div> 
 </div>
 <br />
 <table class="zebra-striped" id="transactions">

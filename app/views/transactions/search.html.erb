@@ -1,29 +1,29 @@
 <%= form_for @search, :url => search_transactions_path do |f| %>
   <div class="clearfix">
-  	<div class="input">
       <div class="inline-inputs">
             Поставки с
     	  <%= f.text_field :created_at_gteq, :class => "small" %>
-          По
+           по 
         <%= f.text_field :created_at_lteq, :class => "small" %>
-        <span class="help-block">Выберите конечную и начальную дату</span>
+        <%= f.select :status_equals, [["Со статусом",""],["Отправлено","send" ],["Получено", "received"],["Расходуется", "use"],["Израсходовано", "finish"]] %>
+        <%= f.select :boiler_room_id_equals,[["Из котельной",""]] + BoilerRoom.all.collect {|b| [ b.name, b.id ]} %>
+        <%= f.select :consumer_id_equals, [["Потребителю",""]] + Consumer.all.collect {|b| [ b.name, b.id ]} %>
+
       </div> 
-    </div>
   </div>
-  <div class="clearfix">
-   <%= f.label :status_equals, "Со статусом" %>
-    <div class="input">
-    <%= f.select :status_equals, [["Любым",""],["Отправлено","send" ],["Получено", "received"],["Расходуется", "use"],["Израсходовано", "finish"]] %>
-    </div>
-  </div>  
   <div class="row">
-    <div class="span6" style="text-align:center;">
+    <div class="span4" style="text-align:center;">
       <%= f.submit "Найти", :class => "btn large primary", :size => 300 %>
      <% end %>
     </div>
-    <div class="span6" style="text-align:center;">
+    <div class="span4" style="text-align:center;">
        <%=link_to "Скачать XML", search_transactions_path(:format => :csv, :search => params[:search]), :class => "btn large success" if @transactions.size > 0 %>
-     </div>  
+     </div> 
+     <div class="span4">
+      <% if @transactions.size > 0 %>
+        <h3>Всего: <%=@transactions.map(&:value).inject(&:+)%> м<sup>3</sup></h3>
+      <% end %> 
+     </div> 
   </div>
  <br />
  <% if @transactions.size > 0 %>
@@ -52,13 +52,6 @@
   </tr>
 <% end %>
   </tbody>
-  <tr>
-  <td></td>
-  <td><h3>Всего:</h3></td>
-  <td><h4><%=@transactions.map{|t| t.value}.inject(0){|sum, value| sum + value }%> м<sup>3</sup></h4></td>
-  <td></td>
-  <td></td>
- </tr>
 </table>
 <% else %>
   <h1>Ничего не найдено</h1>
