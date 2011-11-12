@@ -12,14 +12,14 @@
       </div> 
   </div>
   <div class="row">
-    <div class="span4" style="text-align:center;">
+    <div class="span5" style="text-align:center;">
       <%= f.submit "Найти", :class => "btn large primary", :size => 300 %>
      <% end %>
     </div>
-    <div class="span4" style="text-align:center;">
+    <div class="span5" style="text-align:center;">
        <%=link_to "Скачать XML", search_transactions_path(:format => :csv, :search => params[:search]), :class => "btn large success" if @transactions.size > 0 %>
      </div> 
-     <div class="span4">
+     <div class="span5">
       <% if @transactions.size > 0 %>
         <h3>Всего: <%=@transactions.map(&:value).inject(&:+)%> м<sup>3</sup></h3>
       <% end %> 

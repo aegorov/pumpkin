@@ -6,7 +6,7 @@ class BoilerRoomsController < ApplicationController
   def index
     @boiler_rooms = BoilerRoom.all
   end
-
+  
   def edit
     @boiler_room = BoilerRoom.find(params[:id])
   end

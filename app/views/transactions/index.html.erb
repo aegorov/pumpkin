@@ -5,22 +5,22 @@
   <div class="span2"><%=link_to "Полученные", transactions_path(:status => "received"), :class => "btn small success"%></div>   
   <div class="span2"><%=link_to "Расходуемые", transactions_path(:status => "use"), :class => "btn small warning"%></div>
   <div class="span2"><%=link_to "Израсходованные", transactions_path(:status => "finish"), :class => "btn small danger"%></div>
-  <div class="span4" style="text-align:center;"><h4>Всего: <%=@transactions.map(&:value).inject(&:+)%> м<sup>3</sup></h4></div> 
+  <div class="span4" style="text-align:center;"><h4>Всего: <%=@transactions.map(&:value).inject(&:+)||0%> м<sup>3</sup></h4></div> 
 </div>
 <br />
 <% if @transactions.size > 0 %>
 <table class="zebra-striped" id="transactions">
   <thead> 
-  <tr>
-    <th>Котельная</th>
-    <th>Потребитель</th>
-    <th>Размер</th>
-    <th>Статус</th>
-    <th>Дата</th>
-    <th>Комментарий</th>
-    <th></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th>Котельная</th>
+      <th>Потребитель</th>
+      <th>Размер</th>
+      <th>Статус</th>
+      <th>Дата</th>
+      <th>Комментарий</th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <%= render @transactions %>
