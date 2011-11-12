@@ -1,5 +1,4 @@
 Pumpkin::Application.routes.draw do
-
   resources :transactions, :except => [:show, :new] do
   	get :search, :on => :collection
   end
