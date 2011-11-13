@@ -11,7 +11,7 @@ class Transaction < ActiveRecord::Base
 	scope :received, where(:status => 'received')
 
 
-	#validates :value, presence: { :on => :create }
+	validates :value, presence: { :on => :create }
 
 	after_create :add_total_values
 	after_destroy :destroy_total_values
