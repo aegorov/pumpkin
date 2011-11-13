@@ -23,7 +23,9 @@ group :development do
 	gem 'sqlite3'
 end
 
-#for test
+group :test do
+	gem 'database_cleaner'
+	gem 'factory_girl_rails'
+	gem 'spork'
+end
 gem 'rspec-rails', :group => [:development, :test]
-gem 'database_cleaner', :group => :test
-gem 'factory_girl_rails', :group => :test
