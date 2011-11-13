@@ -26,6 +26,6 @@ end
 group :test do
 	gem 'database_cleaner'
 	gem 'factory_girl_rails'
-	gem 'spork'
+	gem 'spork', '>=0.9.0.rc2'
 end
 gem 'rspec-rails', :group => [:development, :test]
