@@ -8,7 +8,6 @@
         <%= f.select :status_equals, [["Со статусом",""],["Отправлено","send" ],["Получено", "received"],["Расходуется", "use"],["Израсходовано", "finish"]] %>
         <%= f.select :boiler_room_id_equals,[["Из котельной",""]] + BoilerRoom.all.collect {|b| [ b.name, b.id ]} %>
         <%= f.select :consumer_id_equals, [["Потребителю",""]] + Consumer.all.collect {|b| [ b.name, b.id ]} %>
-
       </div> 
   </div>
   <div class="row">
