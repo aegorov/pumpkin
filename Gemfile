@@ -22,3 +22,8 @@ end
 group :development do
 	gem 'sqlite3'
 end
+
+#for test
+gem 'rspec-rails', :group => [:development, :test]
+gem 'database_cleaner', :group => :test
+gem 'factory_girl_rails', :group => :test
